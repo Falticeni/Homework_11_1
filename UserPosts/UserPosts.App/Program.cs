@@ -1,4 +1,5 @@
-﻿using UserPosts.Data;
+﻿using System;
+using UserPosts.Data;
 using UserPosts.Domain;
 using UserPosts.Services;
 
@@ -10,10 +11,18 @@ namespace UserPosts.App
         {
             IPostRepository postRepository = new PostDataAccess();
             IUserRepository userRepository = new UserDataAccess();
+            ICommentRepository commentRepository = new CommentDataAccess();
 
-            var service = new UserService(userRepository, postRepository);
+            //var service = new UserService(userRepository, postRepository);
 
-            var response = service.GetUserActiveRespose(2);
+            //var response = service.GetUserActiveRespose(2);
+
+            var serviceComments = new UserCommentService(userRepository, postRepository, commentRepository);
+            var userComments = serviceComments.UserComments(1);
+            
+
         }
+
+
     }
 }
