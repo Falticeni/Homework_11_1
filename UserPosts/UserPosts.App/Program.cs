@@ -17,7 +17,7 @@ namespace UserPosts.App
 
             //var response = service.GetUserActiveRespose(2);
 
-            var serviceComments = new UserCommentService(userRepository, postRepository, commentRepository);
+            var serviceComments = new UserCommentService(userRepository,  commentRepository);
             var userComments = serviceComments.UserComments(1);
             
 
